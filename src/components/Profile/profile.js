@@ -27,10 +27,11 @@ const ProfileForm = (props) => {
     },
     [setProfileUser, profileUser]
   );
+
   return (
     <StyledProfileForm>
       <div>
-        <label>Emails:</label>
+        <label>Email:</label>
         <input
           name="email"
           value={profileUser.email}

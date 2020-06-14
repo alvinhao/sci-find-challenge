@@ -17,7 +17,7 @@ const ProfileHeader = styled.h1`
   margin: 0 auto;
 `;
 
-class ProfileBase extends Component {
+export class ProfileBase extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,25 +53,23 @@ class ProfileBase extends Component {
     const { id } = this.props.match.params;
     const { dbUser, isLoading } = this.state;
     return (
-      <div>
-        <AuthUserContext.Consumer>
-          {(authUser) =>
-            !authUser ? (
-              <div>Please Sign in</div>
-            ) : isLoading || !dbUser ? (
-              <div>Loading</div>
-            ) : (
-              <div>
-                <ProfileForm
-                  user={dbUser}
-                  isAuthed={authUser && authUser.uid === id}
-                  onSubmitChange={this.onUserChange}
-                />
-              </div>
-            )
-          }
-        </AuthUserContext.Consumer>
-      </div>
+      <AuthUserContext.Consumer>
+        {(authUser) =>
+          !authUser ? (
+            <div>Please Sign in</div>
+          ) : isLoading || !dbUser ? (
+            <div>Loading</div>
+          ) : (
+            <div>
+              <ProfileForm
+                user={dbUser}
+                isAuthed={authUser && authUser.uid === id}
+                onSubmitChange={this.onUserChange}
+              />
+            </div>
+          )
+        }
+      </AuthUserContext.Consumer>
     );
   }
 }
