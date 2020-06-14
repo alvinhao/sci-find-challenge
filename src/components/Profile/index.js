@@ -1,15 +1,21 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import styled from "styled-components";
 import { withFirebase } from "../Firebase";
 import { AuthUserContext } from "../Session";
 import ProfileForm from "./profile";
 
 const ProfilePage = () => (
   <div>
-    <h1>Profile</h1>
+    <ProfileHeader>Profile</ProfileHeader>
     <Profile />
   </div>
 );
+
+const ProfileHeader = styled.h1`
+  text-align: center;
+  margin: 0 auto;
+`;
 
 class ProfileBase extends Component {
   constructor(props) {
