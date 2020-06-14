@@ -16,38 +16,52 @@ class ProfileBase extends Component {
     super(props);
     this.state = {
       loading: false,
-      user: null,
+      dbUser: null,
     };
   }
 
   componentDidMount() {
+    this.loadUserFromDb();
+  }
+
+  loadUserFromDb = () => {
     this.setState({ loading: true });
-    console.log(this.state);
     this.props.firebase
       .user(this.props.match.params.id)
       .on("value", (snapshot) => {
-        console.log(snapshot.val());
         this.setState({
-          user: snapshot.val(),
+          dbUser: snapshot.val(),
           loading: false,
         });
       });
-  }
+  };
+
+  onUserChange = (user) => {
+    //TODO: Actually Update
+    console.log("updating user");
+    console.log(JSON.stringify(user));
+    this.loadUserFromDb();
+  };
 
   render() {
     const { id } = this.props.match.params;
-    const { user, isLoading } = this.state;
+    const { dbUser, isLoading } = this.state;
     return (
       <div>
         <AuthUserContext.Consumer>
           {(authUser) =>
-            isLoading || !authUser || !user ? (
+            !authUser ? (
+              <div>Please Sign in</div>
+            ) : isLoading || !dbUser ? (
               <div>Loading</div>
             ) : (
-              <ProfileForm
-                user={user}
-                isAuthed={authUser && authUser.uid === id}
-              />
+              <div>
+                <ProfileForm
+                  user={dbUser}
+                  isAuthed={authUser && authUser.uid === id}
+                  onSubmitChange={this.onUserChange}
+                />
+              </div>
             )
           }
         </AuthUserContext.Consumer>

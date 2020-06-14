@@ -76,9 +76,6 @@ class SignUpFormBase extends Component {
   onServiceChange = (selectedOptions) => {
     if (selectedOptions) {
       const enabledServices = selectedOptions.map((o) => o.value);
-      console.log(enabledServices);
-      console.log(enabledServices.includes(services.SERVICE_A));
-      console.log(enabledServices.includes(services.SERVICE_B));
       this.setState({
         [services.SERVICE_A]: enabledServices.includes(services.SERVICE_A),
       });
