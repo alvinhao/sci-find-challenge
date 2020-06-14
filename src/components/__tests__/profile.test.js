@@ -37,7 +37,7 @@ it("Profile edit button disabled for unauthed user", () => {
   expect(getByText("Edit")).toHaveAttribute("disabled");
 });
 
-it("Profile form not loading when uid don't match", () => {
+it("Profile form not loading when not signed in", () => {
   const { queryByTestId, getByText } = render(
     <ProfileBase
       match={{ params: { id: "123" } }}

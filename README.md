@@ -1,6 +1,36 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Summary
 
-## Available Scripts
+This project is my homework for [Sci Find coding challenge](https://github.com/bguan2020/scifind_coding_challenge).
+It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), built and hosted on [Firebase](https://firebase.google.com/). 
+
+## URL
+https://sci-fi-challenge.web.app/
+
+## Features
+- Current Home page is blank, clicking on Home navigation link will lead users to [sign in page](https://sci-fi-challenge.web.app/signin).
+- A user can sign up for an account on the [sign up page](https://sci-fi-challenge.web.app/signup).
+- When signing up a user will specify email address, password, and the services he/she wants to enable. 
+- After signing in, users will be redirected to their profile page, listing their email addresses and services that are enalbed. 
+- Signed in the users can click on Edit button to update their email addresses and services. 
+- In theory clicking on Submit button after editing should submit users' changes to database: this feature has NOT been implemented.
+- If a signed in user launches a profile page that's not his/her own (UIDs don't match), Edit button will be disabled. 
+- If a user launches a profile page without signing in, he/she will be asked to sign in.
+
+## Key tech choices
+- ReactJS
+- Firebase - Originally I was going to build APIs on either Java + Spring or NodeJS + NestJS but eventually I decided to stick with Firebase for the following reasons: 
+    - After a quick tutorial I found Firebase a real fun solution to dive deeper. I'll probably start using it for my personal projects.
+    - It's light and easy to pick up.
+    - It has everything we need for this exercise.
+    - The UX is pretty. LOL.
+- Firebase Hosting - After using User Authentication and Database of Firebase, using the hosting service to host my app seems to be a straightforward choice. It's surprisingly simple to deploy, especially after I failed deploying a blank React app to Google Cloud (likely due to some issues with GCP CLI for Windows). 
+- Styled-Component - It may not be obvious that I added some styling, LOL. "Everybody loves working on frontend until they have to deal with CSS". I like the concept of Styled-Componet and I enjoyed using Styled-Component when I was working for Cruise. 
+
+## References
+- I gathered major part of my code and functionalities from this [tutorial](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial).
+- I followed this [instruction](https://medium.com/swlh/how-to-deploy-a-react-app-with-firebase-hosting-98063c5bf425) for Firebase deployment. 
+
+## Scripts
 
 In the project directory, you can run:
 
@@ -26,43 +56,3 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
